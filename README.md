@@ -2,7 +2,7 @@
 
 ![](desafio-engesoftware.png)
 
-Chamando todos os Javeiros, Javeiras, PHPzeiros PHPzeiras, Artesãos, Artesãs,  Caçadores de Pokemon, até mesmo você fanboy, evangelista ou RUBIsta, ou você que faz POG (programação orientada a gato) ... você entendeu. Estamos contratando desenvolvedores! 
+Chamando todos os Javeiros, Javeiras, PHPzeiros PHPzeiras, Artesãos, Artesãs,  Caçadores de Pokemon, até mesmo você fanboy, evangelista ou RUBIsta, ou você que faz POG (programação orientada a gato) ... você entendeu. **Estamos contratando desenvolvedores!**
 
 O nosso processo começa aqui, arrebente nesse desafio, **Mostre do que você é Capaz!**!
 
