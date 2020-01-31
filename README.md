@@ -1,8 +1,8 @@
 # Desafio Engesoftware (Java, PHP e Javascript)
 
-<div align="center"><img src="https://downtownboise.org/_files/images/user1502832219.png"></div>
+![](desafio-engesoftware.png)
 
-**Mostre do que você é Capaz!** Chamando todos os Javeiros, Javeiras, PHPzeiros PHPzeiras, Artesãos, Artesãs,  Caçadores de Pokemon, até mesmo você fanboy, evangelista ou RUBIsta, ou você que faz POG (programação orientada a gato) ... você entendeu. Estamos contratando desenvolvedores! 
+Chamando todos os Javeiros, Javeiras, PHPzeiros PHPzeiras, Artesãos, Artesãs,  Caçadores de Pokemon, até mesmo você fanboy, evangelista ou RUBIsta, ou você que faz POG (programação orientada a gato) ... você entendeu. Estamos contratando desenvolvedores! 
 
 O nosso processo começa aqui, arrebente nesse desafio, **Mostre do que você é Capaz!**!
 
@@ -65,7 +65,7 @@ Atente-se para os seguintes detalhes
 
 - Para JAVA, o pom.xml deve conter a informação sobre a versão da jdk usada (8, 9, 11, 13)
 - O package.json (e composer.json para PHP)  deve ter a entrada de todas as dependências necessárias para execução
-- Se houver algum passo adicional para execução do projeto, descrever em um arquivo README.md no diretório do referido projeto (backend, frontent)
+- Se houver algum passo adicional para execução do projeto, descrever em um arquivo README.md no diretório do referido projeto (backend, frontend)
 
 
 #### Dicas
