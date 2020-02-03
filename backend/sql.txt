@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS `items` ( 
+`id` int(11) NOT NULL AUTO_INCREMENT, 
+`title` varchar(255) NOT NULL, 
+`description` varchar(255) NOT NULL, 
+`created_at` datetime NOT NULL, 
+`updated_at` datetime NOT NULL, 
+PRIMARY KEY (`id`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `tbl_user` (
+ `user_id` int(11) NOT NULL AUTO_INCREMENT,
+ `user_name` varchar(40) NOT NULL,
+ `user_password` varchar(40) NOT NULL,
+ `user_type` varchar(15) NOT NULL,
+ PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

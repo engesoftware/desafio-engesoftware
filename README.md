@@ -74,3 +74,11 @@ Atente-se para os seguintes detalhes
 - Em caso de dúvidas, pergunte!
 
 
+Excecução do projeto
+
+Usar o mysql e o php 5.6
+
+Criar Um banco de Dados e colocar a informação do banco e dados do usuário para conexão com o banco no arquivo
+
+backend/config/database.php
+alterar os campos username, password, database
