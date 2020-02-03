@@ -1,4 +1,4 @@
-# Desafio Engesoftware (Java, PHP e Javascript)
+# Desafio Engesoftware (Java, PHP e JS)
 
 ![](desafio-engesoftware.png)
 
@@ -11,7 +11,15 @@ Para participar, faça um fork desse repositório e o use como repo principal do
 **Registre tudo**: testes que forem executados, idéias que gostaria de implementar se tivesse tempo (explique como você as resolveria, se houvesse tempo), decisões que forem tomadas e seus porquês, arquiteturas que forem testadas e os motivos de terem sido modificadas ou abandonadas. Use o arquivo COMMENTS.md do repositório para registrar essas reflexões e decisões.
 
 
-## A EngeSoftware
+## Para onde estamos contratando?
+
+No momento, temos vagas abertas para as seguintes localidades:
+
+- **Brasília**, **DF** - PHP e Java
+- **Fortaleza**, **CE** - Java e .NET *(para **.NET**, não é necessário fazer o desafio no momento, enviar curriculo para curriculo@engesoftware.com.br)*
+
+
+## A Engesoftware
 
 A Engesoftware Tecnologia S.A. iniciou suas atividades em 1995, em Brasília, prestando serviços técnicos em informática. Em 1996 a empresa já atendia toda a região Centro-Oeste. 
 
@@ -59,7 +67,7 @@ Seu código será observado por uma equipe de desenvolvedores que avaliarão a i
 
 ### Finalizei o desafio, e agora?
 
-Após finalizar a implementação, faça um [pull-request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) da sua implementação e envie um email para currriculo@engesoftware.com.br. No e-mail, anexar o um currículo atualizado e no corpo do e-mail o link do seu pull-request.
+Após finalizar a implementação, faça um [pull-request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) da sua implementação e envie um email para curriculo@engesoftware.com.br. No e-mail, anexar o um currículo atualizado e no corpo do e-mail o link do seu pull-request.
 
 Atente-se para os seguintes detalhes
 
