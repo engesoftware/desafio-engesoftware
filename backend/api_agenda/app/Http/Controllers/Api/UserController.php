@@ -2,6 +2,7 @@
 
 namespace ApiAgenda\Http\Controllers\Api;
 
+use ApiAgenda\Http\Requests\UserRequest;
 use ApiAgenda\Http\Resources\UserResource;
 use ApiAgenda\Models\User;
 use Illuminate\Http\Request;
@@ -20,9 +21,10 @@ class UserController extends Controller
         return UserResource::collection($users);
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = User::create($request->all());
+        return new UserResource($user);
     }
 
     public function show(User $user)
@@ -31,13 +33,16 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $user->fill($request->all());
+        $user->save();
+        return new UserResource($user);
     }
 
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return response()->json([], 204);
     }
 }
