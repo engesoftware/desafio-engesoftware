@@ -3,6 +3,8 @@
 namespace ApiAgenda\Http\Controllers\Api;
 
 use ApiAgenda\Http\Controllers\Controller;
+use ApiAgenda\Http\Requests\ContactRequest;
+use ApiAgenda\Http\Resources\ContactResource;
 use ApiAgenda\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -10,10 +12,10 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return Contact::all();
+        return ContactResource::collection(Contact::all());
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         $contact = Contact::create($request->all());
         $contact->refresh();
@@ -22,7 +24,7 @@ class ContactController extends Controller
 
     public function show(Contact $contact)
     {
-        return $contact;
+        return new ContactResource($contact);
     }
 
     public function update(Request $request, Contact $contact)
