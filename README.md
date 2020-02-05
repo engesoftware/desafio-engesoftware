@@ -62,7 +62,8 @@ Seu código será observado por uma equipe de desenvolvedores que avaliarão a i
 1. Não deve permitir usuário duplicado
 2. Endpoints do CRUD só podem ser acessados após o LOGIN (sessão ou token)
 3. Interface só pode exibir funcionalidade do CRUD após o LOGIN
-4. Deve permitir LOGOUT 
+4. Usuário só pode ver e editar os contatos criados por ele (Contatos pertencem ao usuário logado)
+5. Deve permitir LOGOUT 
 
 
 ### Finalizei o desafio, e agora?
