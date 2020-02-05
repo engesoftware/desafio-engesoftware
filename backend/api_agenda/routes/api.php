@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::resource('contacts', 'ContactController', ['except' => ['create', 'edit']]);
+    Route::resource('users', 'UserController', ['except' => ['create', 'edit']]);
 });

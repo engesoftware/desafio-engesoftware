@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => ApiAgenda\User::class,
+        'model' => \ApiAgenda\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

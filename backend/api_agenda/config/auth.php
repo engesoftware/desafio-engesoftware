@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => ApiAgenda\User::class,
+            'model' => \ApiAgenda\Models\User::class,
         ],
 
         // 'users' => [
