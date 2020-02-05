@@ -27,7 +27,7 @@ class ContactController extends Controller
         return new ContactResource($contact);
     }
 
-    public function update(Request $request, Contact $contact)
+    public function update(ContactRequest $request, Contact $contact)
     {
         $contact->fill($request->all());
         $contact->save();
