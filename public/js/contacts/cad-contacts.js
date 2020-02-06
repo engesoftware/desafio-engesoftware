@@ -1,0 +1,3 @@
+function validar() {
+    $('#carregando').show();
+}
