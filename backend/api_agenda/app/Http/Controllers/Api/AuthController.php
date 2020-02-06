@@ -2,6 +2,7 @@
 
 namespace ApiAgenda\Http\Controllers\Api;
 
+use ApiAgenda\Http\Resources\UserResource;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use ApiAgenda\Http\Controllers\Controller;
@@ -24,5 +25,11 @@ class AuthController extends Controller
     {
         \Auth::guard('api')->logout();
         return response()->json([], 204);
+    }
+
+    public function me()
+    {
+        $user = \Auth::guard('api')->user();
+        return new UserResource($user);
     }
 }

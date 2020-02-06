@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::name('logout')->post('logout', 'AuthController@logout');
+        Route::name('me')->get('me', 'AuthController@me');
         Route::resource('contacts', 'ContactController', ['except' => ['create', 'edit']]);
         Route::resource('users', 'UserController', ['except' => ['create', 'edit']]);
     });
