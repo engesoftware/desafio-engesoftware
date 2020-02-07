@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \ApiAgenda\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \ApiAgenda\Http\Middleware\TrustProxies::class,
+        \ApiAgenda\Http\Middleware\CorsMiddleware::class,
     ];
 
     /**
