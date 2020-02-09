@@ -29,6 +29,7 @@
         <thead>
 
           <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Telefone</th>
@@ -41,14 +42,14 @@
         <tbody>
 
           <tr v-for="contato of contatos" :key="contato.id">
-
+            <td>{{ contato.id }}</td>
             <td>{{ contato.nome }}</td>
             <td>{{ contato.email }}</td>
             <td>{{ contato.telefone }}</td>
             <td>{{ contato.empresa }}</td>
             <td>
-              <button class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
-              <button class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
+              <button @click="editar(contato)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
+              <button @click="remover(contato)" class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
             </td>
 
           </tr>
@@ -71,10 +72,11 @@ export default{
   data(){
     return{
       contato:{
+        id: '',
         nome: '',
         email: '',
         telefone: '',
-        empresa: ''
+        empresa: '',
       },
       contatos: []
     }
@@ -89,11 +91,31 @@ export default{
     })
     },
     salvar(){
+      if(!this.contato.id){
         Contato.salvar(this.contato).then(resposta => {
-          this.contato = {}
-          alert('Salvo com sucesso')
+          alert('Contato salvo com sucesso')
           this.listar()
+          this.contato = {}
         })
+      }
+      else{
+        Contato.atualizar(this.contato).then(resposta => {
+          alert('Contato atualizado com sucesso')
+          this.listar()
+          this.contato = {}
+        })
+      }
+    },
+    editar(contato){
+      this.contato = contato
+    },
+    remover(contato){
+      Contato.apagar(contato).then(resposta => {
+        this.listar()
+        this.errors = []
+      }).catch(e =>{
+        this.errors = e.response.data.errors
+      })
     }
   }
 }
