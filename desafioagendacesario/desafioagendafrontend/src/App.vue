@@ -9,7 +9,7 @@
 
     <div class="container">
 
-      <form>
+      <form @submit.prevent="salvar">
 
           <label>Nome</label>
           <input type="text" placeholder="Nome Completo" v-model="contato.nome">
@@ -64,7 +64,7 @@
 
 <script>
 
-import Produto from './services/contatos'
+import Contato from './services/contatos'
 
 export default{
 
@@ -80,10 +80,21 @@ export default{
     }
   },
   mounted(){
-    Produto.listar().then(resposta => {
-      console.log(resposta.data)
+    this.listar()
+  },
+  methods:{
+    listar(){
+      Contato.listar().then(resposta => {
       this.contatos = resposta.data
     })
+    },
+    salvar(){
+        Contato.salvar(this.contato).then(resposta => {
+          this.contato = {}
+          alert('Salvo com sucesso')
+          this.listar()
+        })
+    }
   }
 }
 

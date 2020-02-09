@@ -6,6 +6,6 @@ export default {
     },
 
     salvar:(contato) => {
-        return http.post('contato')
+        return http.post('contato', contato)
     }
 }
