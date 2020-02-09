@@ -28,4 +28,12 @@ public class ContatoController {
     public Contato salvaContato(@RequestBody Contato contato){
         return contatoRepository.save(contato);
     }
+    @PutMapping("/contato")
+    public Contato atualizaContato(@RequestBody Contato contato){
+        return contatoRepository.save(contato);
+    }
+    @DeleteMapping("/contato")
+        public void deletarContato(@RequestBody Contato contato){
+            contatoRepository.delete(contato);
+        }
 }
