@@ -12,7 +12,9 @@ export class LoginComponent implements OnInit {
   credentials = {
     email: 'admin@user.com',
     password: 'secret'
-  }
+  };
+
+  showMessageError: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) { //Injenção de dependência automática
 
@@ -25,11 +27,10 @@ export class LoginComponent implements OnInit {
   submit(){
     this.http.post<any>('http://localhost:8000/api/login', this.credentials)
       .subscribe((data) => {
-        console.log(data);
         const token = data.token;
         window.localStorage.setItem('token', token);
         this.router.navigate(['contacts/list']);
-      });
+      }, () => this.showMessageError = true);
     return false;
   }
 

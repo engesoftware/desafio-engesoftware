@@ -1,3 +1,6 @@
+<div class="col col-md-4 offset-4" *ngIf="showMessageError">
+  <alert-error [(show)]="showMessageError">Credenciais Inválidas!</alert-error>
+</div>
 <form class="form-signin" (submit)="submit()">
   <img class="mb-4" src="https://getbootstrap.com.br/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Agenda</h1>
