@@ -7,6 +7,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { ContactListComponent } from './components/pages/contact/contact-list/contact-list.component';
+import { AlertErrorComponent } from './components/bootstrap/alert-error/alert-error.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,7 +19,8 @@ const routes : Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    ContactListComponent
+    ContactListComponent,
+    AlertErrorComponent
   ],
     imports: [
         BrowserModule,
