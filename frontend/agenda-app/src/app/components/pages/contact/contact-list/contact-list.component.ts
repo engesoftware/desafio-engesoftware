@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
+declare let $;
+
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -10,7 +12,11 @@ export class ContactListComponent implements OnInit {
 
   contacts: Array<{id: number, name: string, email: boolean, phone_number: string, company: string, created_at: {date: string}}>;
 
-  constructor(private http: HttpClient) { }
+  contact = {
+    'name': ''
+  };
+
+  constructor(private http: HttpClient) { console.log('contact list'); }
 
   ngOnInit() {
     this.getContacts();
