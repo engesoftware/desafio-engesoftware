@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="col-lg-12">
+        <a [routerLink]="['/login']" href="login" style="float:right;margin-left:5px;color:white">Login</a>    
+        <a [routerLink]="['/registrar']" href="registrar" style="float:right;color:white">Registrar</a>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+    <br>
+    <br>
+    <br>
+        <div class="card">
+            <div class="card-body">
+                <b>Email</b>
+                <input type="text" name="email" [(ngModel)]="email" class="form-control" required (keydown.enter)="senha.trim().length>0&&email.trim().length>0?logar():false">
+                <b>Senha</b>
+                <input type="password" name="senha" [(ngModel)]="senha" class="form-control" required (keydown.enter)="senha.trim().length>0&&email.trim().length>0?logar():false">
+            </div>
+            <div class="card-footer">
+                <a [routerLink]="['/registrar']" class="float-left btn btn-secondary">Registrar</a>                
+                <button type="button" id="logar" class="float-right btn btn-primary" (click)="logar()">Logar</button>
+            </div>
+        </div>
+    </div>
+</div>

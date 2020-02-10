@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="col-lg-12">
+        <a [routerLink]="['/login']" href="login" style="float:right;margin-left:5px;color:white">Login</a>    
+        <a [routerLink]="['/registrar']" href="registrar" style="float:right;color:white">Registrar</a>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+    <br>
+    <br>
+    <br>
+        <div class="card">
+            <form class="card-body" [formGroup]="form"  >
+            <h4 class="card-title">Cadastro de usuário</h4>
+                <b>Nome</b>
+                <input type="text" formControlName="nome" name="nome"  class="form-control" required>
+                <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['nome'].hasError('required')">O preenchimento do campo é obrigatório</div> 
+                <b>Email</b>
+                <input type="email" formControlName="email" name="email"  class="form-control" required email>
+                <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">O preenchimento do campo é obrigatório</div> 
+                <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].hasError('email')">Informe um email válido</div> 
+                <b>Senha</b>
+                <input type="password" formControlName="password" name="password"  class="form-control" autocomplete="off" >
+                <div class="text-danger" *ngIf="form.controls['password'].touched && form.controls['password'].hasError('required')">O preenchimento do campo é obrigatório</div>                 
+                <b>Confirmar Senha</b>
+                <input type="password" formControlName="c_password" name="c_password"  class="form-control" autocomplete="off" >
+                <div class="text-danger" *ngIf="form.controls['c_password'].touched && form.controls['c_password'].hasError('required')">O preenchimento do campo é obrigatório</div> 
+                <div class="text-danger" *ngIf="form.controls['c_password'].touched && form.controls['c_password'].hasError('senha')">As senhas não conferem</div> 
+            </form>
+            <div class="card-footer">
+                <button type="button" class="float-right btn btn-primary" (click)="cadastrar()">cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>

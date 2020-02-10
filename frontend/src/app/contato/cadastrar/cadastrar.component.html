@@ -1,0 +1,41 @@
+<nav class="navbar navbar-dark bg-primary">    
+    <div class="navbar-nav mr-auto">
+        <a class="nav-link  float-left " [routerLink]="['/contato']" href="contato" style="color:white">Contatos</a>
+    </div>
+    <div class="navbar-nav ml-auto">
+        <a class="nav-link  float-right " [routerLink]="['/logoff']" href="logoff" style="color:white">Logoff</a>
+    </div>
+</nav>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+        <br>
+        <br>
+        <br>
+            <div class="card">
+                
+                <form class="card-body" [formGroup]="form">
+                    <h4 class="card-title"> Cadastrar novo contato</h4>
+                    <b>Nome</b>                    
+                    <input type="text" name="nome" formControlName="nome" class="form-control" required>
+                    <div class="text-danger" *ngIf="form.controls['nome'].touched && form.controls['nome'].hasError('required')">O preenchimento do campo é obrigatório</div> 
+                    <b>Telefone</b>
+                    <input type="tel" name="telefone" formControlName="telefone" class="form-control" required>
+                    <div class="text-danger" *ngIf="form.controls['telefone'].touched && form.controls['telefone'].hasError('required')">O preenchimento do campo é obrigatório</div> 
+                    <b>E-mail</b>
+                    <input type="email" name="email" formControlName="email" class="form-control" required email>
+                    <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')">O preenchimento do campo é obrigatório</div> 
+                    <div class="text-danger" *ngIf="form.controls['email'].touched && form.controls['email'].hasError('email')">Informe um email válido</div> 
+                    <b>Empresa</b>
+                    <input type="text" name="empresa" formControlName="empresa" class="form-control" required>
+                    <div class="text-danger" *ngIf="form.controls['empresa'].touched && form.controls['empresa'].hasError('required')">O preenchimento do campo é obrigatório</div> 
+                </form>
+                <div class="card-footer">
+                    
+                    <button type="button" class="float-right btn btn-primary" (click)="salvar()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
