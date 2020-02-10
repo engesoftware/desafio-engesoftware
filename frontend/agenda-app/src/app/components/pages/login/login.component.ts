@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: 'secret'
   }
 
-  constructor(private http: HttpClient) { //Injenção de dependência automática
+  constructor(private http: HttpClient, private router: Router) { //Injenção de dependência automática
 
   }
 
@@ -25,11 +27,8 @@ export class LoginComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         const token = data.token;
-        this.http.get('http://localhost:8000/api/contacts', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        }).subscribe((data) => console.log(data))
+        window.localStorage.setItem('token', token);
+        this.router.navigate(['contacts/list']);
       });
     return false;
   }
