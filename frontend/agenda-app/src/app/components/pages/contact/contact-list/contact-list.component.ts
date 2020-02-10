@@ -13,13 +13,30 @@ export class ContactListComponent implements OnInit {
   contacts: Array<{id: number, name: string, email: boolean, phone_number: string, company: string, created_at: {date: string}}>;
 
   contact = {
-    'name': ''
+    'name': '',
+    'email': '',
+    'phone_number': '',
+    'company': ''
   };
 
   constructor(private http: HttpClient) { console.log('contact list'); }
 
   ngOnInit() {
     this.getContacts();
+  }
+
+  submit(){
+    const token = window.localStorage.getItem('token');
+    this.http
+      .post('http://localhost:8000/api/contacts', this.contact, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }).subscribe((category) => {
+      console.log(category);
+      this.getContacts();
+      $("#exampleModal").modal('hide')
+    })
   }
 
   getContacts(){
