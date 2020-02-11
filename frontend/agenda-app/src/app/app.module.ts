@@ -14,6 +14,7 @@ import { ContactEditModalComponent } from './components/pages/contact/contact-ed
 import { ContactDeleteModalComponent } from './components/pages/contact/contact-delete-modal/contact-delete-modal.component';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import {AuthService} from "./services/auth.service";
+import { NavbarComponent } from './components/bootstrap/navbar/navbar.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -41,7 +42,8 @@ function jwtfactory(authService: AuthService) {
     ModalComponent,
     ContactNewModalComponent,
     ContactEditModalComponent,
-    ContactDeleteModalComponent
+    ContactDeleteModalComponent,
+    NavbarComponent
   ],
     imports: [
         BrowserModule,

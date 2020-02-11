@@ -35,12 +35,12 @@ export class AuthService {
   }
 
   private setUserFromToken(token: string){
-      const decodedToken = new JwtHelperService().decodeToken(token);
-      this.me = decodedToken ? {
-          id: decodedToken.sub,
-          name: decodedToken.name,
-          email: decodedToken.email
-      } : null;
+      const decodedPayload = new JwtHelperService().decodeToken(token);
+      this.me = decodedPayload ? {
+           id: decodedPayload.sub,
+           name: decodedPayload.name,
+           email: decodedPayload.email
+      } :  null;
   }
 
   getToken(): string | null {
