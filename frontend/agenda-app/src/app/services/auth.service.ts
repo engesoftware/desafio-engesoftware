@@ -19,7 +19,7 @@ export class AuthService {
       this.setUserFromToken(token);
   }
 
-  login(user: {email: string, password: string}): Observable<{token: string}{
+  login(user: {email: string, password: string}): Observable<{token: string}>{
       return this.http
                 .post<{token: string}>('http://localhost:8000/api/login', user)
                 .pipe(
