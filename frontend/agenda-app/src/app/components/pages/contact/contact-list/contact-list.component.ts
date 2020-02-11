@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {ContactNewModalComponent} from "../contact-new-modal/contact-new-modal.component";
+import {ContactEditModalComponent} from "../contact-edit-modal/contact-edit-modal.component";
 
 declare let $;
 
@@ -13,15 +14,13 @@ export class ContactListComponent implements OnInit {
 
   contacts: Array<{id: number, name: string, email: boolean, phone_number: string, company: string, created_at: {date: string}}>;
 
-  contact = {
-    'name': '',
-    'email': '',
-    'phone_number': '',
-    'company': ''
-  };
-
   @ViewChild(ContactNewModalComponent)
   contactNewModal: ContactNewModalComponent;
+
+  @ViewChild(ContactEditModalComponent)
+  contactEditModal: ContactEditModalComponent;
+
+  contactId: number;
 
   constructor(private http: HttpClient) { console.log('contact list'); }
 
@@ -43,12 +42,26 @@ export class ContactListComponent implements OnInit {
       this.contactNewModal.showModal();
   }
 
+  showModalEdit(contactId: number) {
+      this.contactId = contactId;
+      this.contactEditModal.showModal();
+  }
+
   onInsertSuccess($event: any) {
       console.log($event);
       this.getContacts();
   }
 
   onInsertError($event: HttpErrorResponse) {
+      console.log($event);
+  }
+
+  onEditSuccess($event: any) {
+      console.log($event);
+      this.getContacts();
+  }
+
+  onEditError($event: HttpErrorResponse) {
       console.log($event);
   }
 }

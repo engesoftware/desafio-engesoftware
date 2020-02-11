@@ -10,6 +10,7 @@ import { ContactListComponent } from './components/pages/contact/contact-list/co
 import { AlertErrorComponent } from './components/bootstrap/alert-error/alert-error.component';
 import { ModalComponent } from './components/bootstrap/modal/modal.component';
 import { ContactNewModalComponent } from './components/pages/contact/contact-new-modal/contact-new-modal.component';
+import { ContactEditModalComponent } from './components/pages/contact/contact-edit-modal/contact-edit-modal.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,7 +25,8 @@ const routes : Routes = [
     ContactListComponent,
     AlertErrorComponent,
     ModalComponent,
-    ContactNewModalComponent
+    ContactNewModalComponent,
+    ContactEditModalComponent
   ],
     imports: [
         BrowserModule,

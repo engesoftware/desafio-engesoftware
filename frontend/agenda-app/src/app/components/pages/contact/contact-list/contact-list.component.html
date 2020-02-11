@@ -11,7 +11,7 @@
       <th style="width: 25%">Nome</th>
       <th style="width: 25%">E-mail</th>
       <th style="width: 10%">Telefone</th>
-      <th style="width: 12%">Compania</th>
+      <th style="width: 12%">Companhia</th>
       <th style="width: 10%">Criado em</th>
       <th style="width: 13%">Ações</th>
     </tr>
@@ -24,9 +24,14 @@
       <td>{{contact.phone_number}}</td>
       <td>{{contact.company}}</td>
       <td>{{contact.created_at.date | date: 'dd/MM/yyyy'}}</td>
-      <td>Editar | Excluir</td>
+      <td>
+          <a href="javascrip:void(0)" (click)="showModalEdit(contact.id)">
+            <i class="fas fa-edit"></i>
+          </a>
+      </td>
     </tr>
     </tbody>
   </table>
 </div>
 <contact-new-modal (onSuccess)="onInsertSuccess($event)" (onError)="onInsertError($event)"></contact-new-modal>
+<contact-edit-modal [contactId]="contactId" (onSuccess)="onEditSuccess($event)" (onError)="onEditError($event)"></contact-edit-modal>
