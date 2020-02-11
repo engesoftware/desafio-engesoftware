@@ -8,6 +8,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { ContactListComponent } from './components/pages/contact/contact-list/contact-list.component';
 import { AlertErrorComponent } from './components/bootstrap/alert-error/alert-error.component';
+import { ModalComponent } from './components/bootstrap/modal/modal.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,7 +21,8 @@ const routes : Routes = [
     AppComponent,
     LoginComponent,
     ContactListComponent,
-    AlertErrorComponent
+    AlertErrorComponent,
+    ModalComponent
   ],
     imports: [
         BrowserModule,
