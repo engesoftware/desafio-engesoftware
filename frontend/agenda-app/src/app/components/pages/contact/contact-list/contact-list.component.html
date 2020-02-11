@@ -3,7 +3,7 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <td colspan="5">
+      <td colspan="7">
         <button type="button" class="btn btn-primary" (click)="showModalInsert()">Novo Contato</button></td>
     </tr>
     <tr>
@@ -27,6 +27,9 @@
       <td>
           <a href="javascrip:void(0)" (click)="showModalEdit(contact.id)">
             <i class="fas fa-edit"></i>
+          </a> |
+          <a href="javascrip:void(0)" (click)="showModalDelete(contact.id)">
+            <i class="fas fa-trash-alt"></i>
           </a>
       </td>
     </tr>
@@ -35,3 +38,4 @@
 </div>
 <contact-new-modal (onSuccess)="onInsertSuccess($event)" (onError)="onInsertError($event)"></contact-new-modal>
 <contact-edit-modal [contactId]="contactId" (onSuccess)="onEditSuccess($event)" (onError)="onEditError($event)"></contact-edit-modal>
+<contact-delete-modal [contactId]="contactId" (onSuccess)="onDeleteSuccess($event)" (onError)="onDeleteError($event)"></contact-delete-modal>

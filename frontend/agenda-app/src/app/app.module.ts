@@ -11,6 +11,7 @@ import { AlertErrorComponent } from './components/bootstrap/alert-error/alert-er
 import { ModalComponent } from './components/bootstrap/modal/modal.component';
 import { ContactNewModalComponent } from './components/pages/contact/contact-new-modal/contact-new-modal.component';
 import { ContactEditModalComponent } from './components/pages/contact/contact-edit-modal/contact-edit-modal.component';
+import { ContactDeleteModalComponent } from './components/pages/contact/contact-delete-modal/contact-delete-modal.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +27,8 @@ const routes : Routes = [
     AlertErrorComponent,
     ModalComponent,
     ContactNewModalComponent,
-    ContactEditModalComponent
+    ContactEditModalComponent,
+    ContactDeleteModalComponent
   ],
     imports: [
         BrowserModule,
