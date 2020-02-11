@@ -9,6 +9,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ContactListComponent } from './components/pages/contact/contact-list/contact-list.component';
 import { AlertErrorComponent } from './components/bootstrap/alert-error/alert-error.component';
 import { ModalComponent } from './components/bootstrap/modal/modal.component';
+import { ContactNewModalComponent } from './components/pages/contact/contact-new-modal/contact-new-modal.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,7 +23,8 @@ const routes : Routes = [
     LoginComponent,
     ContactListComponent,
     AlertErrorComponent,
-    ModalComponent
+    ModalComponent,
+    ContactNewModalComponent
   ],
     imports: [
         BrowserModule,
