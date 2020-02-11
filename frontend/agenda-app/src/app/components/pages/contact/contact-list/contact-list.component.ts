@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {ContactNewModalComponent} from "../contact-new-modal/contact-new-modal.component";
 import {ContactEditModalComponent} from "../contact-edit-modal/contact-edit-modal.component";
 import {ContactDeleteModalComponent} from "../contact-delete-modal/contact-delete-modal.component";
+import {AuthService} from "../../../../services/auth.service";
 
 declare let $;
 
@@ -26,20 +27,15 @@ export class ContactListComponent implements OnInit {
 
   contactId: number;
 
-  constructor(private http: HttpClient) { console.log('contact list'); }
+  constructor(private http: HttpClient, private authService: AuthService) { console.log('contact list'); }
 
   ngOnInit() {
       this.getContacts();
   }
 
   getContacts(){
-      const token = window.localStorage.getItem('token');
       this.http.get<{data: Array<{id: number, name: string, email: boolean, phone_number: string, company: string, created_at: {date: string}}>}>
-        ('http://localhost:8000/api/contacts', {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-        }).subscribe(response => this.contacts = response.data)
+        ('http://localhost:8000/api/contacts').subscribe(response => this.contacts = response.data)
   }
 
   showModalInsert(){

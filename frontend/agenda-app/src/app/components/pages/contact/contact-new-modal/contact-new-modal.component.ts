@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {AuthService} from "../../../../services/auth.service";
 
 @Component({
   selector: 'contact-new-modal',
@@ -21,19 +22,16 @@ export class ContactNewModalComponent implements OnInit {
   @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
   @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   submit(){
-      const token = window.localStorage.getItem('token');
+      const token = this.authService.getToken();
       this.http
-          .post('http://localhost:8000/api/contacts', this.contact, {
-              headers: {
-                'Authorization': `Bearer ${token}`
-              }
-          }).subscribe((contact) => {
+          .post('http://localhost:8000/api/contacts', this.contact)
+          .subscribe((contact) => {
               this.onSuccess.emit(contact)
               this.modal.hide();
           }, error => this.onError.emit(error));

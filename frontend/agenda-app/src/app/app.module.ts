@@ -12,12 +12,25 @@ import { ModalComponent } from './components/bootstrap/modal/modal.component';
 import { ContactNewModalComponent } from './components/pages/contact/contact-new-modal/contact-new-modal.component';
 import { ContactEditModalComponent } from './components/pages/contact/contact-edit-modal/contact-edit-modal.component';
 import { ContactDeleteModalComponent } from './components/pages/contact/contact-delete-modal/contact-delete-modal.component';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import {AuthService} from "./services/auth.service";
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'contacts/list', component: ContactListComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, //Define page default
-]
+];
+
+function jwtfactory(authService: AuthService) {
+    return {
+        whitelistedDomains: [
+            new RegExp('localhost:8000/*')
+        ],
+        tokenGetter: () => {
+            return authService.getToken();
+        }
+    }
+}
 
 @NgModule({
   declarations: [
@@ -34,7 +47,14 @@ const routes : Routes = [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        RouterModule.forRoot(routes, {enableTracing: true})
+        RouterModule.forRoot(routes, {enableTracing: true}),
+        JwtModule.forRoot({
+            jwtOptionsProvider: {
+                provide: JWT_OPTIONS,
+                useFactory: jwtfactory,
+                deps: [AuthService]
+            }
+        })
     ],
   providers: [],
   bootstrap: [AppComponent]
