@@ -12,4 +12,8 @@ export class AppComponent {
     constructor(public authService: AuthService) {
 
     }
+
+    canShowNavBar(){
+        return this.authService.isAuth();
+    }
 }
