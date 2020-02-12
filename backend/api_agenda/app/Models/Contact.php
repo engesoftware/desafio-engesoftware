@@ -8,5 +8,5 @@ use Mnabialek\LaravelEloquentFilter\Traits\Filterable;
 class Contact extends Model
 {
     use Filterable;
-    protected $fillable = ['name', 'email', 'phone_number', 'company'];
+    protected $fillable = ['name', 'email', 'phone_number', 'company', 'user_id'];
 }
