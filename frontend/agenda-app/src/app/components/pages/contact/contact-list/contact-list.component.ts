@@ -35,9 +35,9 @@ export class ContactListComponent implements OnInit {
   }
 
   getContacts(){
-      var strSearch = this.searchText ? `?search=${this.searchText}` : '';
+      var strSearch = this.searchText ? `&search=${this.searchText}` : '';
       this.http.get<{data: Array<{id: number, name: string, email: boolean, phone_number: string, company: string, created_at: {date: string}}>}>
-        (`http://localhost:8000/api/contacts${strSearch}`).subscribe(response => this.contacts = response.data)
+        (`http://localhost:8000/api/contacts?userId=${this.authService.me.id}${strSearch}`).subscribe(response => this.contacts = response.data)
   }
 
   showModalInsert(){

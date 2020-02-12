@@ -4,18 +4,16 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {AuthService} from "../../../../services/auth.service";
 
 @Component({
-  selector: 'contact-new-modal',
-  templateUrl: './contact-new-modal.component.html',
-  styleUrls: ['./contact-new-modal.component.css']
+  selector: 'user-new-modal',
+  templateUrl: './user-new-modal.component.html',
+  styleUrls: ['./user-new-modal.component.css']
 })
-export class ContactNewModalComponent implements OnInit {
+export class UserNewModalComponent implements OnInit {
 
-  contact = {
+  user = {
       'name': '',
       'email': '',
-      'phone_number': '',
-      'company': '',
-      'user_id': this.authService.me.id
+      'password': ''
   };
 
   @ViewChild(ModalComponent) modal: ModalComponent;
@@ -29,22 +27,21 @@ export class ContactNewModalComponent implements OnInit {
   }
 
   submit(){
-
-      this.http
-          .post('http://localhost:8000/api/contacts', this.contact)
-          .subscribe((contact) => {
-              this.onSuccess.emit(contact)
-              this.modal.hide();
-          }, error => this.onError.emit(error));
+    this.http
+        .post('http://localhost:8000/api/users', this.user)
+        .subscribe((user) => {
+            this.onSuccess.emit(user)
+            this.modal.hide();
+        }, error => this.onError.emit(error));
   }
 
   showModal() {
       this.modal.show();
   }
 
-  hideModal($event: Event) {
+  hideModal($event) {
       //fazer algo quando o modal for fechado
       console.log($event);
+      this.modal.hide();
   }
-
 }

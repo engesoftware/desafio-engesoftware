@@ -17,6 +17,7 @@ import {AuthService} from "./services/auth.service";
 import { NavbarComponent } from './components/bootstrap/navbar/navbar.component';
 import {AuthGuard} from "./guards/auth.guard";
 import { ContactSearchFormComponent } from './components/pages/contact/contact-search-form/contact-search-form.component';
+import { UserNewModalComponent } from './components/pages/user/user-new-modal/user-new-modal.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,7 +47,8 @@ function jwtfactory(authService: AuthService) {
     ContactEditModalComponent,
     ContactDeleteModalComponent,
     NavbarComponent,
-    ContactSearchFormComponent
+    ContactSearchFormComponent,
+    UserNewModalComponent
   ],
     imports: [
         BrowserModule,
