@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
+        "mnabialek/laravel-eloquent-filter": "^0.1.1",
         "tymon/jwt-auth": "dev-develop#f57a0ff33f20d2a0c3ebc9e13ce8382a83f921a8"
     },
     "require-dev": {

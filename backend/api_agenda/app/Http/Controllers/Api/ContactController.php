@@ -3,16 +3,23 @@
 namespace ApiAgenda\Http\Controllers\Api;
 
 use ApiAgenda\Http\Controllers\Controller;
+use ApiAgenda\Http\Filters\ContactFilter;
 use ApiAgenda\Http\Requests\ContactRequest;
 use ApiAgenda\Http\Resources\ContactResource;
 use ApiAgenda\Models\Contact;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return ContactResource::collection(Contact::all());
+        /** @var ContactFilter $filter */
+        $filter = app(ContactFilter::class);
+        /** @var Builder $filterQuery */
+        $filterQuery = Contact::filtered($filter);
+        $contacts = $filterQuery->get();
+        return ContactResource::collection($contacts);
     }
 
     public function store(ContactRequest $request)
