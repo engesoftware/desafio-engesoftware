@@ -3,11 +3,15 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <td colspan="7">
-        <button type="button" class="btn btn-primary" (click)="showModalInsert()">Novo Contato</button></td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="showModalInsert()">Novo Contato</button>
+      </td>
+      <td colspan="6">
+        <contact-search-form (onSearch)="search($event)"></contact-search-form>
+      </td>
     </tr>
     <tr>
-      <th style="width: 5%">ID</th>
+      <th style="width: 15%">ID</th>
       <th style="width: 25%">Nome</th>
       <th style="width: 25%">E-mail</th>
       <th style="width: 10%">Telefone</th>

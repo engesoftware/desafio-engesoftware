@@ -16,6 +16,7 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import {AuthService} from "./services/auth.service";
 import { NavbarComponent } from './components/bootstrap/navbar/navbar.component';
 import {AuthGuard} from "./guards/auth.guard";
+import { ContactSearchFormComponent } from './components/pages/contact/contact-search-form/contact-search-form.component';
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
@@ -44,7 +45,8 @@ function jwtfactory(authService: AuthService) {
     ContactNewModalComponent,
     ContactEditModalComponent,
     ContactDeleteModalComponent,
-    NavbarComponent
+    NavbarComponent,
+    ContactSearchFormComponent
   ],
     imports: [
         BrowserModule,

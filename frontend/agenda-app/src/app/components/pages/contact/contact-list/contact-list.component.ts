@@ -26,6 +26,7 @@ export class ContactListComponent implements OnInit {
   contactDeleteModal: ContactDeleteModalComponent;
 
   contactId: number;
+  searchText: string;
 
   constructor(private http: HttpClient, private authService: AuthService) { console.log('contact list'); }
 
@@ -34,8 +35,9 @@ export class ContactListComponent implements OnInit {
   }
 
   getContacts(){
+      var strSearch = this.searchText ? `?search=${this.searchText}` : '';
       this.http.get<{data: Array<{id: number, name: string, email: boolean, phone_number: string, company: string, created_at: {date: string}}>}>
-        ('http://localhost:8000/api/contacts').subscribe(response => this.contacts = response.data)
+        (`http://localhost:8000/api/contacts${strSearch}`).subscribe(response => this.contacts = response.data)
   }
 
   showModalInsert(){
@@ -77,5 +79,10 @@ export class ContactListComponent implements OnInit {
 
   onDeleteError($event: HttpErrorResponse) {
       console.log($event);
+  }
+
+  search(search) {
+      this.searchText = search;
+      this.getContacts();
   }
 }
