@@ -15,10 +15,11 @@ import { ContactDeleteModalComponent } from './components/pages/contact/contact-
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import {AuthService} from "./services/auth.service";
 import { NavbarComponent } from './components/bootstrap/navbar/navbar.component';
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes : Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'contacts/list', component: ContactListComponent },
+  { path: 'contacts/list', component: ContactListComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, //Define page default
 ];
 
