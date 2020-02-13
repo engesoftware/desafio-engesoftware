@@ -61,7 +61,7 @@ export class ContactListComponent implements OnInit {
   }
 
   onInsertError($event: HttpErrorResponse) {
-      this.notifyMessage.success('Erro ao cadastrar contato.');
+      this.notifyMessage.error('Erro ao cadastrar contato.');
       console.log($event);
   }
 
@@ -71,7 +71,7 @@ export class ContactListComponent implements OnInit {
   }
 
   onEditError($event: HttpErrorResponse) {
-      this.notifyMessage.success('Erro ao atualizar contato.');
+      this.notifyMessage.error('Erro ao atualizar contato.');
   }
 
   onDeleteSuccess($event: any) {
@@ -80,7 +80,7 @@ export class ContactListComponent implements OnInit {
   }
 
   onDeleteError($event: HttpErrorResponse) {
-      this.notifyMessage.success('Erro ao excluir contato.');
+      this.notifyMessage.error('Erro ao excluir contato.');
   }
 
   search(search) {
