@@ -25,6 +25,8 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
+    "pace": "github:HubSpot/pace#v1.0.2",
+    "pnotify": "^4.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "6.0.0",
     "zone.js": "^0.8.26"

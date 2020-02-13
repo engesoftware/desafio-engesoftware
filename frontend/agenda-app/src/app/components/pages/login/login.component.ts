@@ -3,6 +3,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import { Router } from '@angular/router';
 import {AuthService} from "../../../services/auth.service";
 import {UserNewModalComponent} from "../user/user-new-modal/user-new-modal.component";
+import {NotifyMessageService} from "../../../services/notify-message.service";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   showMessageError: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { //Injenção de dependência automática
+  constructor(private authService: AuthService, private router: Router, private notifyMessage: NotifyMessageService) { //Injenção de dependência automática
 
   }
 
@@ -45,13 +46,13 @@ export class LoginComponent implements OnInit {
 
   onInsertSuccess(event: any) {
       console.log(event);
-      alert("Usuário cadastrado com sucesso.");
+      this.notifyMessage.success("Usuário cadastrado com sucesso.");
       this.userNewModal.hideModal(event);
   }
 
   onInsertError(event: HttpErrorResponse) {
       console.log(event);
-      alert("Erro ao cadastrar usuário. Tente novamente.");
+      this.notifyMessage.error('Erro ao cadastrar usuário. Tente novamente.');
       this.userNewModal.hideModal(event);
   }
 }

@@ -4,6 +4,7 @@ import {ContactNewModalComponent} from "../contact-new-modal/contact-new-modal.c
 import {ContactEditModalComponent} from "../contact-edit-modal/contact-edit-modal.component";
 import {ContactDeleteModalComponent} from "../contact-delete-modal/contact-delete-modal.component";
 import {AuthService} from "../../../../services/auth.service";
+import {NotifyMessageService} from "../../../../services/notify-message.service";
 
 declare let $;
 
@@ -28,7 +29,7 @@ export class ContactListComponent implements OnInit {
   contactId: number;
   searchText: string;
 
-  constructor(private http: HttpClient, private authService: AuthService) { console.log('contact list'); }
+  constructor(private http: HttpClient, private authService: AuthService, private notifyMessage: NotifyMessageService) { console.log('contact list'); }
 
   ngOnInit() {
       this.getContacts();
@@ -55,30 +56,31 @@ export class ContactListComponent implements OnInit {
   }
 
   onInsertSuccess($event: any) {
-      console.log($event);
+      this.notifyMessage.success('Contato cadastrado com sucesso.');
       this.getContacts();
   }
 
   onInsertError($event: HttpErrorResponse) {
+      this.notifyMessage.success('Erro ao cadastrar contato.');
       console.log($event);
   }
 
   onEditSuccess($event: any) {
-      console.log($event);
+      this.notifyMessage.success('Contato atualizado com sucesso.');
       this.getContacts();
   }
 
   onEditError($event: HttpErrorResponse) {
-      console.log($event);
+      this.notifyMessage.success('Erro ao atualizar contato.');
   }
 
   onDeleteSuccess($event: any) {
-      console.log($event);
+      this.notifyMessage.success('Contato excluído com sucesso.');
       this.getContacts();
   }
 
   onDeleteError($event: HttpErrorResponse) {
-      console.log($event);
+      this.notifyMessage.success('Erro ao excluir contato.');
   }
 
   search(search) {
