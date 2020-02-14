@@ -115,7 +115,7 @@ var Login = function() {
 
 				$.ajax({
 					type: "POST",
-					url: "../backend/login/logar",
+					url: "../backend/index.php/login/logar",
 					data: dados,
 					dataType: "json",
 					success: function( data )
@@ -196,11 +196,19 @@ var Login = function() {
 
 				$.ajax({
 					type: "POST",
-					url: "../backend/login/store",
+					url: "../backend/index.php/login/store",
 					data: dados,
+					dataType: "json",
 					success: function( data )
 					{
-						alert( data );
+						if (data.say == 'ok'){
+							alert( 'Salvo Com Sucesso!!!!');
+							window.location.reload();
+
+						} else if (data.say == 'dup'){
+							alert( 'Email Duplicado');
+
+						} 
 					}
 				});
 

@@ -48,7 +48,7 @@ class login extends CI_Controller {
     $username = $this->input->post('username');
     $password = $this->input->post('password');
     $user = $this->login->get_objetc($username,$password);
-    if (count($user)==0) die('{"say":"ok"}');
+    if (count($user)==0) die('{"say":"Senha ou Email Invalidos"}');
       if ($password == $this->encrypt->decode($user->password)){
         $this->session->set_userdata('usuario',@$user->id);
         $this->session->set_userdata('username',@$user->email);
@@ -82,11 +82,22 @@ class login extends CI_Controller {
         $this->form_validation->set_rules('password', 'Description', 'required');
 
 
+        if (empty($id)){
+          $data = $this->login->get_objetc($this->input->post('email'),null);
+
+          if (count($data)>0){
+            echo  '{"say":"dup"}';
+            die();
+          }
+          
+        }
+
         if ($this->form_validation->run() == FALSE){
             $this->session->set_flashdata('errors', validation_errors());
         }else{
            $this->login->insert();
         }
+        echo  '{"say":"ok"}';
     }
 
 

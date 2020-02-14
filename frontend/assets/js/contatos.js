@@ -18,7 +18,7 @@ var Contatos = function() {
 
 				$.ajax({
 					type: "POST",
-					url: "../backend/contatos/store",
+					url: "../backend/index.php/contatos/store",
 					data: dados,
 					dataType: "json",
 					success: function( data )
@@ -42,7 +42,7 @@ var Contatos = function() {
 	$(function() {
 		$.ajax({
 			type: "GET",
-			url: "../backend/login/verifica_login",
+			url: "../backend/index.php/login/verifica_login",
 			dataType: "json",
 			success: function( data )
 			{
@@ -63,7 +63,7 @@ var Contatos = function() {
 				"sUrl":  "../frontend/assets/plugins/DataTables/examples/examples_support/de_DE.txt"
 			},
 			"bProcessing": true,
-			"sAjaxSource":  "../backend/contatos/listagem/" ,
+			"sAjaxSource":  "../backend/index.php/contatos/listagem/" ,
 			"aoColumns": [
 				{"mData": "nome"}, 
 				{"mData": "email"}, 
@@ -89,7 +89,7 @@ var Contatos = function() {
 
 				$.ajax({
 					type: "POST",
-					url: "../backend/contatos/edit/"+id,
+					url: "../backend/index.php/contatos/edit/"+id,
 					dataType: "json",
 					success: function( data )
 					{
@@ -119,7 +119,7 @@ var Contatos = function() {
 
 				$.ajax({
 					type: "POST",
-					url: "../backend/contatos/delete/"+id,
+					url: "../backend/index.php/contatos/delete/"+id,
 					dataType: "json",
 					success: function( data )
 					{
@@ -136,7 +136,7 @@ var Contatos = function() {
 
 				$.ajax({
 					type: "POST",
-					url: "../backend/login/logout/",
+					url: "../backend/index.php/login/logout/",
 					dataType: "json",
 					success: function( data )
 					{
