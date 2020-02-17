@@ -1,5 +1,7 @@
 # Desafio Engesoftware (Java, PHP e JS)
 
+## ATENÇÃO! DESAFIO INATIVO, envie curriculo para curriculo@engesoftware.com.br
+
 ![](desafio-engesoftware.png)
 
 Chamando todos os Javeiros, Javeiras, PHPzeiros PHPzeiras, Artesãos, Artesãs,  Caçadores de Pokemon, até mesmo você fanboy, evangelista ou RUBIsta, ou você que faz POG (programação orientada a gato) ... você entendeu. **Estamos contratando desenvolvedores!**
@@ -13,10 +15,7 @@ Para participar, faça um fork desse repositório e o use como repo principal do
 
 ## Para onde estamos contratando?
 
-No momento, temos vagas abertas para as seguintes localidades:
-
-- **Brasília**, **DF** - PHP e Java
-- **Fortaleza**, **CE** - Java e .NET *(para **.NET**, não é necessário fazer o desafio no momento, enviar curriculo para curriculo@engesoftware.com.br)*
+### ATENÇÃO! DESAFIO INATIVO, envie curriculo para curriculo@engesoftware.com.br
 
 
 ## A Engesoftware
