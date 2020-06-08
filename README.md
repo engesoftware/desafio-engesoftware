@@ -11,11 +11,6 @@ Para participar, faça um fork desse repositório e o use como repo principal do
 **Registre tudo**: testes que forem executados, idéias que gostaria de implementar se tivesse tempo (explique como você as resolveria, se houvesse tempo), decisões que forem tomadas e seus porquês, arquiteturas que forem testadas e os motivos de terem sido modificadas ou abandonadas. Use o arquivo COMMENTS.md do repositório para registrar essas reflexões e decisões.
 
 
-## Para onde estamos contratando?
-
-### ATENÇÃO! DESAFIO INATIVO, envie curriculo para curriculo@engesoftware.com.br
-
-
 ## A Engesoftware
 
 A Engesoftware Tecnologia S.A. iniciou suas atividades em 1995, em Brasília, prestando serviços técnicos em informática. Em 1996 a empresa já atendia toda a região Centro-Oeste. 
