@@ -1,0 +1,45 @@
+<div class="rows">
+  <h1>Lista de Contatos</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="showModalInsert()">Novo Contato</button>
+      </td>
+      <td colspan="6">
+        <contact-search-form (onSearch)="search($event)"></contact-search-form>
+      </td>
+    </tr>
+    <tr>
+      <th style="width: 15%">ID</th>
+      <th style="width: 25%">Nome</th>
+      <th style="width: 25%">E-mail</th>
+      <th style="width: 10%">Telefone</th>
+      <th style="width: 12%">Companhia</th>
+      <th style="width: 10%">Criado em</th>
+      <th style="width: 13%">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>{{contact.id}}</td>
+      <td>{{contact.name}}</td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.phone_number}}</td>
+      <td>{{contact.company}}</td>
+      <td>{{contact.created_at.date | date: 'dd/MM/yyyy'}}</td>
+      <td>
+          <a href="javascrip:void(0)" (click)="showModalEdit(contact.id)">
+            <i class="fas fa-edit"></i>
+          </a> |
+          <a href="javascrip:void(0)" (click)="showModalDelete(contact.id)">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<contact-new-modal (onSuccess)="onInsertSuccess($event)" (onError)="onInsertError($event)"></contact-new-modal>
+<contact-edit-modal [contactId]="contactId" (onSuccess)="onEditSuccess($event)" (onError)="onEditError($event)"></contact-edit-modal>
+<contact-delete-modal [contactId]="contactId" (onSuccess)="onDeleteSuccess($event)" (onError)="onDeleteError($event)"></contact-delete-modal>
